@@ -138,18 +138,18 @@ def main():
 
 # All the other async functions are part of the API that was previously built
 
-async def print_body(request):
-    print(f"request header: {dict(request.headers.items())}'")
-    print(f"request query parameters: {dict(request.query_params.items())}'")
-    try:
-        result = await request.json()
-        print(f'request json: {result}')
-        return result
-    except Exception as err:
-        # could not parse json
-        body = await request.body()
-        print(f'request body : {body}')
-        return {"undecodeable body": body}
+# async def print_body(request):
+#     print(f"request header: {dict(request.headers.items())}'")
+#     print(f"request query parameters: {dict(request.query_params.items())}'")
+#     try:
+#         result = await request.json()
+#         print(f'request json: {result}')
+#         return result
+#     except Exception as err:
+#         # could not parse json
+#         body = await request.body()
+#         print(f'request body : {body}')
+#         return {"undecodeable body": body}
 
 
 #######################################################################################################################
@@ -158,24 +158,24 @@ async def print_body(request):
 #                                                                                                                     #
 #######################################################################################################################
 
-async def predict(request):
-    try:
-        input = await request.json()
-        # input = await requests.post(url = "http://127.0.0.1:8000/main",
-        #                         data = json.dumps(inputs))
-        results = generate_results(input)
-        return results
+# async def predict(request):
+#     try:
+#         input = await request.json()
+#         # input = await requests.post(url = "http://127.0.0.1:8000/main",
+#         #                         data = json.dumps(inputs))
+#         results = generate_results(input)
+#         return results
     
-    except Exception as err:
-        raise HTTPException(status_code=400, detail=f"bad data: {err}")
+#     except Exception as err:
+#         raise HTTPException(status_code=400, detail=f"bad data: {err}")
 
 
-@app.post("/xero/1.0/event:ntl.class")
-async def classify(request: Request):
-    input = await request.json()
-    result = await predict(request)
+# @app.post("/xero/1.0/event:ntl.class")
+# async def classify(request: Request):
+#     input = await request.json()
+#     result = await predict(request)
 
-    return result
+#     return result
                 
                 
 if __name__== "__main__":
