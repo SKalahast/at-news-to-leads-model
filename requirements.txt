@@ -1,0 +1,17 @@
+# Requires Python 3.8.7+
+fastapi             == 0.87.0
+uvicorn             == 0.20.0
+pandas              == 1.2.4
+numpy               == 1.22.3
+scikit-learn        == 0.23.2
+datetime            == 5.4
+streamlit           == 1.23.0
+requests            == 2.31.0
+selenium            == 4.1.0
+newspaper3k         == 0.2.0
+beautifulsoup4      == 4.4.1
+protobuf            == 3.20.*
+dateparser          == 1.2.0
+python-dotenv       == 1.0.1
+openai              == 1.10.0
+xlrd                == 2.0.0
