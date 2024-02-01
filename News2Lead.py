@@ -51,7 +51,7 @@ def news_2_leads(client,start_date,end_date):
     url = 'https://www.google.com/'
     
     # driver = webdriver.Chrome(options=options)
-    driver = webdriver.Chrome(options=options, service=get_webdriver_service(logpath=logpath))
+    driver = webdriver.Chrome(options=options, service=get_webdriver_service())
     # driver = webdriver.Chrome()
     driver.get("https://www.google.com/")
     driver.quit()
