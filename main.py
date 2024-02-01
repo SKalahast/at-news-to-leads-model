@@ -104,7 +104,7 @@ def main():
                 df = df[df['Headline'].str.lower().str.contains(include_string)]
                 df = df.reset_index(drop=True) 
                 st.write("Checking Relevant News...")
-                df['filter_text'] = df['Headline'].apply(lambda x:text_filter(x))
+                df['filter_text'] = df['Headline'].apply(lambda x:text_filter(x), param='message')
                 df = df[(df["filter_text"].str.lower().str.contains('no such information')==True)]
                 df = df.reset_index(drop=True)
                 
