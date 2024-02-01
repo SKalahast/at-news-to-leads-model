@@ -14,14 +14,30 @@ import dateparser
 options = webdriver.ChromeOptions()
 options.add_experimental_option("useAutomationExtension", False)
 options.add_experimental_option("excludeSwitches",["enable-automation"])
-options.add_argument("--no-sandbox") 
-options.add_argument("--disable-setuid-sandbox") 
-options.add_argument("--remote-debugging-port=9222")  # this
-options.add_argument("--disable-dev-shm-using") 
-options.add_argument("--disable-extensions") 
-options.add_argument("--disable-gpu") 
-options.add_argument("start-maximized") 
-options.add_argument("disable-infobars")
+options = Options()
+options.add_argument("--headless")
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+options.add_argument("--disable-gpu")
+options.add_argument("--disable-features=NetworkService")
+options.add_argument("--window-size=1920x1080")
+options.add_argument("--disable-features=VizDisplayCompositor")
+
+def get_webdriver_service(logpath):
+    service = Service(
+        executable_path=get_chromedriver_path(),
+        log_output=logpath,
+    )
+    return service
+
+# @st.cache_resource(show_spinner=False)
+def get_logpath():
+    return os.path.join(os.getcwd(), 'selenium.log')
+
+
+# @st.cache_resource(show_spinner=False)
+def get_chromedriver_path():
+    return shutil.which('chromedriver')
 
 
 all_client_df = pd.read_csv('DSC_Company_List.csv')
@@ -36,7 +52,7 @@ def news_2_leads(client,start_date,end_date):
     url = 'https://www.google.com/'
     
     # driver = webdriver.Chrome(options=options)
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver = webdriver.Chrome(options=options, service=get_webdriver_service(logpath=logpath))
     # driver = webdriver.Chrome()
     driver.get("https://www.google.com/")
     driver.quit()
@@ -149,7 +165,7 @@ def all_clients(start_date,end_date):
     url = 'https://www.google.com/'
     
     # driver = webdriver.Chrome(options=options)
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver = webdriver.Chrome(options=get_webdriver_options(), service=get_webdriver_service(logpath=logpath))
     # driver = webdriver.Chrome()
     driver.get("https://www.google.com/")
     driver.quit()
