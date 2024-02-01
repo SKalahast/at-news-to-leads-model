@@ -22,6 +22,7 @@ options.add_argument("--disable-gpu")
 options.add_argument("--disable-features=NetworkService")
 options.add_argument("--window-size=1920x1080")
 options.add_argument("--disable-features=VizDisplayCompositor")
+options.add_argument('--disable-blink-features=AutomationControlled')
 
 def get_webdriver_service(logpath):
     service = Service(
