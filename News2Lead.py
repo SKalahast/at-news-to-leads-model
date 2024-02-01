@@ -14,9 +14,8 @@ import dateparser
 options = webdriver.ChromeOptions()
 options.add_experimental_option("useAutomationExtension", False)
 options.add_experimental_option("excludeSwitches",["enable-automation"])
-options.add_experimental_option("--no-sandbox")
-options.add_experimental_option("--disable-dev-shm-usage")
-options = webdriver.ChromeOptions()
+options.add_experimental_option("--no-sandbox", True)
+options.add_experimental_option("--disable-dev-shm-usage", True)
 
 all_client_df = pd.read_csv('DSC_Company_List.csv')
 
