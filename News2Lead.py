@@ -28,6 +28,7 @@ def news_2_leads(client,start_date,end_date):
     
     # driver = webdriver.Chrome(options=options)
     driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
+    driver.quit()
     
     driver.get(url)
     try:
@@ -138,6 +139,7 @@ def all_clients(start_date,end_date):
     
     # driver = webdriver.Chrome(options=options)
     driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
+    driver.quit()
     
     for client in all_client_df['Client Name']:
         driver.get(url)
