@@ -38,6 +38,8 @@ def get_logpath():
 def get_chromedriver_path():
     return shutil.which('chromedriver')
 
+logpath=get_logpath()
+
 
 all_client_df = pd.read_csv('DSC_Company_List.csv')
 
