@@ -14,8 +14,15 @@ import dateparser
 options = webdriver.ChromeOptions()
 options.add_experimental_option("useAutomationExtension", False)
 options.add_experimental_option("excludeSwitches",["enable-automation"])
-options.add_experimental_option("--no-sandbox", True)
-options.add_experimental_option("--disable-dev-shm-usage", True)
+chromeOptions.add_argument("--no-sandbox") 
+chromeOptions.add_argument("--disable-setuid-sandbox") 
+chromeOptions.add_argument("--remote-debugging-port=9222")  # this
+chromeOptions.add_argument("--disable-dev-shm-using") 
+chromeOptions.add_argument("--disable-extensions") 
+chromeOptions.add_argument("--disable-gpu") 
+chromeOptions.add_argument("start-maximized") 
+chromeOptions.add_argument("disable-infobars")
+
 
 all_client_df = pd.read_csv('DSC_Company_List.csv')
 
@@ -28,9 +35,9 @@ def news_2_leads(client,start_date,end_date):
     company_name = []
     url = 'https://www.google.com/'
     
-    # driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome(options=options)
     # driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
-    driver = webdriver.Chrome()
+    # driver = webdriver.Chrome()
     driver.get("https://www.google.com/")
     driver.quit()
     
@@ -141,9 +148,9 @@ def all_clients(start_date,end_date):
     company_name = []
     url = 'https://www.google.com/'
     
-    # driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome(options=options)
     # driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
-    driver = webdriver.Chrome()
+    # driver = webdriver.Chrome()
     driver.get("https://www.google.com/")
     driver.quit()
     
