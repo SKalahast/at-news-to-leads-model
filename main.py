@@ -40,6 +40,9 @@ inclusion_sheet = pd.read_excel(xls, 'inclusion_sheet').dropna(how='any',axis=0)
 if comp_list not in  st.session_state:
     st.session_state.comp_list = None
 
+def get_logpath():
+    return os.path.join(os.getcwd(), 'selenium.log')
+
 def to_m_d_yyyy(dt):
     return f"{dt.month}/{dt.day}/{dt.year}"
 
