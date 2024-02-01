@@ -12,7 +12,8 @@ import os
 load_dotenv() #This command is used to read any apikey stored in the .env file.
 openai.api_type = "azure"
 openai.api_base = os.getenv("OPENAI_API_ENDPOINT")
-openai.api_key = os.getenv('OPENAI_API_KEY')
+# openai.api_key = os.getenv('OPENAI_API_KEY')
+openai.api_key  = "bb2a2b81ceda424e9dfdc0deea13b1f9"
 openai.api_version = os.getenv("OPENAI_API_VERSION")
 
 xls = pd.ExcelFile("inclusion_exclusion.xlsx")
@@ -23,7 +24,7 @@ exclude_string = ", ".join(dup_check).lower().strip()
 
 
 def get_completion(prompt, engine ='gpt-4-32k',model_name="gpt-4", temperature=0):
-    openai.api_key = os.getenv('OPENAI_API_KEY')
+    # openai.api_key = os.getenv('OPENAI_API_KEY')
     messages = [{"role": "user", "content":prompt}]
     response = openai.ChatCompletion.create(
     # response = openai.chat.completions.create(
@@ -35,7 +36,7 @@ def get_completion(prompt, engine ='gpt-4-32k',model_name="gpt-4", temperature=0
     return response.choices[0].message["content"]
 
 def get_industry(prompt, engine ='gpt-4-32k',model_name="gpt-4", temperature=0.9):
-    openai.api_key = os.getenv('OPENAI_API_KEY')
+    # openai.api_key = os.getenv('OPENAI_API_KEY')
     messages = [{"role": "user", "content":prompt}]
     response = openai.ChatCompletion.create(
     # response = openai.chat.completions.create(
