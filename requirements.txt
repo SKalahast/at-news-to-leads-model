@@ -7,7 +7,7 @@ scikit-learn
 datetime            == 5.4
 streamlit           == 1.27.0
 requests            == 2.31.0
-selenium            == 4.1.0
+selenium            
 newspaper3k         == 0.2.0
 beautifulsoup4      == 4.4.1
 protobuf            == 3.20.*
