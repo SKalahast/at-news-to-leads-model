@@ -9,6 +9,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.core.os_manager import ChromeType
 from selenium.webdriver.chrome.service import Service
 import time, os
+import shutil
 import dateparser
 
 options = webdriver.ChromeOptions()
