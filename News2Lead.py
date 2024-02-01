@@ -5,6 +5,7 @@ from tqdm import tqdm
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 import time
 import dateparser
 
@@ -23,7 +24,8 @@ def news_2_leads(client,start_date,end_date):
     company_name = []
     url = 'https://www.google.com/'
     
-    driver = webdriver.Chrome(options=options)
+    # driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome(ChromeDriverManager().install())
     
     driver.get(url)
     try:
@@ -132,7 +134,8 @@ def all_clients(start_date,end_date):
     company_name = []
     url = 'https://www.google.com/'
     
-    driver = webdriver.Chrome(options=options)
+    # driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome(ChromeDriverManager().install())
     
     for client in all_client_df['Client Name']:
         driver.get(url)
