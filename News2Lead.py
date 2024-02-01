@@ -6,6 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.core.os_manager import ChromeType
 from selenium.webdriver.chrome.service import Service as ChromeService
 import time
 import dateparser
@@ -26,7 +27,7 @@ def news_2_leads(client,start_date,end_date):
     url = 'https://www.google.com/'
     
     # driver = webdriver.Chrome(options=options)
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
     
     driver.get(url)
     try:
@@ -136,7 +137,7 @@ def all_clients(start_date,end_date):
     url = 'https://www.google.com/'
     
     # driver = webdriver.Chrome(options=options)
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
     
     for client in all_client_df['Client Name']:
         driver.get(url)
