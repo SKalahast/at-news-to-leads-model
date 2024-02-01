@@ -27,7 +27,9 @@ def news_2_leads(client,start_date,end_date):
     url = 'https://www.google.com/'
     
     # driver = webdriver.Chrome(options=options)
-    driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
+    # driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
+    driver = webdriver.Chrome()
+    driver.get("https://www.google.com/")
     driver.quit()
     
     driver.get(url)
@@ -138,7 +140,9 @@ def all_clients(start_date,end_date):
     url = 'https://www.google.com/'
     
     # driver = webdriver.Chrome(options=options)
-    driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
+    # driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
+    driver = webdriver.Chrome()
+    driver.get("https://www.google.com/")
     driver.quit()
     
     for client in all_client_df['Client Name']:
