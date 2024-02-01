@@ -24,7 +24,8 @@ exclude_string = ", ".join(dup_check).lower().strip()
 
 def get_completion(prompt, engine ='gpt-4-32k',model_name="gpt-4", temperature=0):
     messages = [{"role": "user", "content":prompt}]
-    response = openai.ChatCompletion.create(
+    # response = openai.ChatCompletion.create(
+    response = openai.chat.completions.create(
         engine=engine,
         messages=messages,
         temperature=temperature
@@ -34,7 +35,8 @@ def get_completion(prompt, engine ='gpt-4-32k',model_name="gpt-4", temperature=0
 
 def get_industry(prompt, engine ='gpt-4-32k',model_name="gpt-4", temperature=0.9):
     messages = [{"role": "user", "content":prompt}]
-    response = openai.ChatCompletion.create(
+    # response = openai.ChatCompletion.create(
+    response = openai.chat.completions.create(
         engine=engine,
         messages=messages,
         temperature=temperature
