@@ -1,6 +1,0 @@
-HUGGINGFACEHUB_API_TOKEN = "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"
-
-OPENAI_API_VERSION = 2023-03-15-preview
-OPENAI_API_ENDPOINT = https://openai-ds-australiaeast-prod.openai.azure.com/
-OPENAI_API_KEY = bb2a2b81ceda424e9dfdc0deea13b1f9
-OPEAI_API_TYPE = azure
